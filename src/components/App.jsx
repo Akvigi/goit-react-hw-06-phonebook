@@ -1,7 +1,5 @@
 import React, {useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { addC } from "redux/contactsSlice";
-// import {  deleteC } from "redux/actions";
+import {useSelector } from "react-redux";
 import PhoneBookForm from "./PhoneBook/PBForm";
 import List from "./PhoneBook/PBList";
 import PBSearch from "./PhoneBook/PBSearch";
@@ -9,9 +7,6 @@ import Section from "./Section/Section";
 import { ContentContainer, PageContainer } from "./styled-comp/styled";
 
 const App = () => {
-  // const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem("contactlist")) ?? [])
-  // const [filter, setFilter] = useState('')
-  // const dispatch = useDispatch()
   const contacts = useSelector(store => store.contacts)
   const filter = useSelector(store => store.filter)
 
@@ -20,14 +15,6 @@ const App = () => {
     const string = JSON.stringify(contacts)
     localStorage.setItem("contactlist", string)
   }, [contacts])
-
-  //  const renderContacts = (newContact) => {
-  //   if (contacts) {
-  //     setContacts(prevState => [...prevState, newContact])
-  //   } else {
-  //     setContacts([newContact])
-  //   }
-  // }
 
   const onFilter = () => {
     if (filter) {

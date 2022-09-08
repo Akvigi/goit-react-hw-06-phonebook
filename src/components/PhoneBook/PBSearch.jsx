@@ -1,8 +1,9 @@
 import { Label } from 'components/styled-comp/styled'
 import React from 'react'
-// import PropTypes from 'prop-types' 
 import { useDispatch, useSelector } from 'react-redux'
 import { setFilter } from 'redux/filterSlice'
+import PropTypes from 'prop-types'
+
 const PBSearch = () => {
   const dispatch = useDispatch()
   const array = useSelector(state => state.contacts)
@@ -22,9 +23,9 @@ const PBSearch = () => {
   )
 }
 
-// PBSearch.propTypes = {
-//   array: PropTypes.array,
+PBSearch.propTypes = {
+  array: PropTypes.array,
 //   onChange: PropTypes.func  
-// }
+}
 
 export default PBSearch
