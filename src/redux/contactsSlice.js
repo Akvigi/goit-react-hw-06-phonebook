@@ -1,10 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const parsed = JSON.parse(localStorage.getItem('contactlist'));
+const getLocalSt = () => {
+  const parsed = JSON.parse(localStorage.getItem('contactlist'));
+  if (parsed) {
+    return [...parsed];
+  }
+  return [];
+};
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [...parsed],
+  initialState: getLocalSt(),
   reducers: {
     addC: {
       reducer: (state, { payload }) => {
